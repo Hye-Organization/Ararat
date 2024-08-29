@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default async function Home() {
   const cookieJar = cookies();
-  let incus = incusClient("https://95.216.211.49:8443");
+  let incus = incusClient("https://188.245.72.127:8443");
   let dat = await incus.get("");
   console.log(dat.data);
   const user = decode(cookieJar.get("id_token").value);
@@ -45,7 +45,7 @@ export default async function Home() {
   return (
     <><div className="flex mb-2">
       <p className="text-3xl font-bold">Instances</p>
-      <Button className="ml-auto">Create Instance</Button>
+      <Button href="/instance/create" className="ml-auto">Create Instance</Button>
     </div>
       <Table head={["Name", "Status", "Location", "Description", "Created At", "Manage"]} body={instanceTable} />
     </>
